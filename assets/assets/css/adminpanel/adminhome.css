@@ -1,0 +1,106 @@
+/* Home Content Wrapper */
+.home-content-wrapper {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 750px;
+    box-shadow: 0 4px 4px #7e7e7c; 
+    margin: auto;
+    height: 450px; /* Adjusted height */
+    transition: padding 0.3s ease-in-out, width 0.3s ease-in-out;
+    overflow: auto;
+}
+
+.home-welcome-heading {
+    margin-bottom: 20px;
+    border-bottom: 4px solid #1c32f5;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Home Dashboard Content */
+.home-dashboard-content {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.home-card-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.home-card {
+    flex: 1;
+    margin: 0 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 4px 8px 8px 8px rgba(57, 56, 56, 0.1);
+    transition: transform 0.3s;
+}
+
+.home-card:hover {
+    transform: translateY(-5px);
+}
+
+.home-card-body {
+    padding: 20px;
+}
+
+.home-card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.home-card-text {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.home-card .btn {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .home-card-row {
+        flex-direction: column;
+    }
+
+    .home-card {
+        margin: 10px 0;
+        border-radius: 20px;
+    }
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 25px;
+}
+
+.card-img, .card-img-top {
+    border-radius: 15px;
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 25px;
+}
+.card-img, .card-img-bottom {
+    /* border-bottom-right-radius: calc(.25rem - 1px); */
+    /* border-bottom-left-radius: calc(.25rem - 1px); */
+    border-radius: 15px;
+}

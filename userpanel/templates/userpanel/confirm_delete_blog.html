@@ -1,0 +1,17 @@
+{% extends 'userpanel/user_base.html' %}
+{% block title %}
+    Confirm Delete | My Blog
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Are you sure you want to delete this blog?</h2>
+    <p><strong>{{ blog.title }}</strong></p>
+    <p>This action cannot be undone.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, delete this blog</button>
+        <a href="{% url 'my_blog' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,213 @@
+/* General Styles */
+body {
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-fluid {
+    flex: 1;
+    padding-top: 60px; /* Ensure content is pushed below the navbar */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    height: 56px;
+    padding: 10px 20px;
+    z-index: 9999; /* Ensures it stays on top */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+    margin-right: 20px;
+}
+.navbar .profile-picture {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-item .nav-link {
+    display: flex;
+    align-items: center;
+}
+
+/* Sidebar */
+#sidebar-left {
+    position: fixed;
+    top: 56px; /* Below the navbar */
+    left: 0;
+    width: 220px;
+    height: calc(100% - 56px); /* Full height minus the navbar */
+    background-color: #222;
+    color: #fff;
+    padding-top: 20px;
+    border-right: 2px solid #444;
+    z-index: 9998; /* Slightly below the navbar */
+    overflow-y: auto;
+    transition: width 0.3s, padding 0.3s;
+}
+
+#sidebar-left .nav-link {
+    color: #ddd;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    transition: padding 0.3s, font-size 0.3s;
+}
+
+#sidebar-left .nav-link i {
+    margin-right: 10px;
+}
+
+#sidebar-left .nav-link:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#sidebar-left .nav-link.active {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 220px; /* Adjust based on sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+    position: relative;
+    z-index: 1; /* Ensure the content appears behind the sidebar and navbar */
+    overflow: hidden; /* Prevents content from overlapping */
+}
+
+.projcard-container {
+    margin-top: 20px;
+}
+
+/* Projcard */
+.projcard {
+    width: 100%;
+    height: 350px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    font-size: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.projcard:hover {
+    box-shadow: 0 34px 32px -33px rgba(0, 0, 0, 0.18);
+    transform: translate(0px, -3px);
+}
+
+.projcard-img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Profile Dropdown */
+.navbar .dropdown-menu {
+    position: absolute;
+    top: 56px; /* Align with the navbar height */
+    right: 20px; /* Ensure it's aligned to the right */
+    z-index: 99999; /* Ensure it stays on top */
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #ddd;
+    padding: 20px 0;
+    width: 100%;
+    border-top: 2px solid #444;
+    margin-top: auto;
+}
+
+/* Messages container */
+.messages-container {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    z-index: 1050;
+    width: auto;
+    max-width: 300px;
+}
+
+
+/* Media Queries */
+
+/* For screens less than or equal to 768px */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    #sidebar-left {
+        position: relative;
+        width: 50%;
+        height: 50%;
+        top: 0;
+        z-index: 9999;
+        border-radius: 15px;
+        margin: 10px;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .projcard-container {
+        margin-top: 10px;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 576px) {
+    .navbar .profile-picture {
+        width: 28px;
+        height: 28px;
+    }
+
+    #sidebar-left {
+        width: 180px; /* Reduce the sidebar size on smaller screens */
+        padding: 10px 5px; /* Make padding smaller */
+        font-size: 0.9rem; /* Slightly reduce font size */
+        z-index: 9998;
+        border-radius: 15px;
+        margin: 10px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .projcard {
+        height: 250px; /* Reduce height of project cards */
+    }
+
+    .projcard-container {
+        margin-top: 10px;
+    }
+}

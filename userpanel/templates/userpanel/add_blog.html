@@ -1,0 +1,69 @@
+{% extends 'userpanel/user_base.html' %}
+{% load static %}
+{% block title %}
+    Add New Blog | My Blog
+{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'assets/css/userpanel/add_blog.css' %}">
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="add-blog-content-wrapper">
+    <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        
+        <h2 class="h2 add-blog-heading">Add New Blog</h2>
+    </div>
+
+    <div class="alert alert-info" role="alert">
+        Please fill in all the details to create a new blog post.
+    </div>
+
+    <div class="add-blog-form-container">
+        <div class="add-blog-form">
+            <form id="add-blog-form" action="{% url 'add_blog' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_title">Title</label>
+                    {{ form.title }}
+                </div>
+                <div class="form-group">
+                    <label for="quill-editor">Content</label>
+                    <div id="quill-editor" style="height: 300px;"></div>
+                    {{ form.content.as_hidden }}
+                </div>
+                <div class="form-group">
+                    <label for="id_blog_image">Blog Image</label>
+                    {{ form.blog_image }}
+                </div>
+                <div class="form-group">
+                    <label for="id_status">Status</label><br>
+                    <div class="form-check">
+                        {{ form.status }}
+                    </div>
+                </div>
+                <div class="form-group text-center"> <!-- Center the button -->
+                    <button type="submit" class="btn custom-submit-btn" style="color: white;">Submit</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+    // Initialize Quill editor
+    var quill = new Quill('#quill-editor', {
+        theme: 'snow'
+    });
+
+    // Handle form submission
+    var form = document.getElementById('add-blog-form');
+    form.onsubmit = function() {
+        // Get HTML content from Quill editor
+        var content = document.querySelector('input[name=content]');
+        content.value = quill.root.innerHTML;
+    };
+</script>
+{% endblock %}

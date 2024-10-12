@@ -1,0 +1,84 @@
+{% extends 'adminpanel/admin_base.html' %}
+{% load static %}
+{% block title %}
+    Admin Dashboard
+{% endblock %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'assets/css/adminpanel/adminhome.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Admin Dashboard</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-users"></i> Total Users</h5>
+                    <p class="card-text">{{ users_count }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-book"></i> Total Blogs</h5>
+                    <p class="card-text">{{ blogs_count }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-info mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-comments"></i> Total Comments</h5>
+                    <p class="card-text">{{ comments_count }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-clipboard-list"></i> Recent Activity</h5>
+                    <p class="card-text"><a href="{% url 'blog_list'%}">View All Activities</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Recent Blogs</h3>
+            <ul class="list-group">
+                {% for blog in recent_blogs %}
+                <li class="list-group-item">
+                    <a href="{% url 'admin_view_blog' blog.id %}">{{ blog.title }}</a> 
+                    <small class="text-muted">by {{ blog.author.username }} on {{ blog.created_at|date:"F j, Y" }}</small>
+                </li>
+                {% empty %}
+                <li class="list-group-item">No recent blogs available.</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h3>Recent Comments</h3>
+            <ul class="list-group">
+                {% for comment in recent_comments %}
+                <li class="list-group-item">
+                    <p>{{ comment.comment|truncatechars:50 }}</p>
+                    <small class="text-muted">on <a href="{% url 'admin_view_blog' comment.blog.id %}">{{ comment.blog.title }}</a> 
+                    by {{ comment.author.username }}</small>
+                </li>
+                {% empty %}
+                <li class="list-group-item">No recent comments available.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'userpanel/user_base.html' %}
+{% load static %}
+{% block title %}
+    View Profile | My Blog
+{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'assets/css/userpanel/view_profile.css' %}">
+{% endblock %}
+{% block content %}
+<div class="content-wrapper">
+    <!-- User Profile Container -->
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="cover-photo">
+                {% if User_profile.cover_photo %}
+                <img src="{{ User_profile.cover_photo.url }}" alt="Cover Photo" class="cover-photo-img">
+                {% else %}
+                <img src="{% static 'assets/image/default_cover.jpg' %}" alt="Default Cover Photo" class="cover-photo-img">
+                {% endif %}
+            </div>
+            <div class="profile-info">
+                {% if User_profile.profile_image %}
+                <img src="{{ User_profile.profile_image.url }}" alt="Profile Picture" class="profile-picture-large">
+                {% else %}
+                <img src="{% static 'assets/image/default_profile.png' %}" alt="Default Profile Picture" class="profile-picture-large">
+                {% endif %}
+                <h3>{{ User_profile.user.first_name }} {{ User_profile.user.last_name }}</h3>
+                <p class="profile-username"><i class="fas fa-user"></i> Username: {{ User_profile.user.username }}</p>
+                <p class="profile-email"><i class="fas fa-envelope"></i> {{ User_profile.user.email }}</p>
+                <p class="profile-member-since"><i class="fas fa-calendar-alt"></i> Member Since: {{ User_profile.user.date_joined|date:"d-M-Y" }}</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- User Blog Posts Container -->
+    <div class="blog-container">
+        <h3 class="blog-section-title">Published Blogs</h3>
+        <div class="projcard-container">
+            {% for blog in blogs %}
+            <div class="projcard {% cycle 'projcard-blue' 'projcard-red' 'projcard-green' 'projcard-customcolor' %}">
+                <div class="projcard-innerbox">
+                    {% if blog.blog_image %}
+                    <img class="projcard-img" src="{{ blog.blog_image.url }}" alt="{{ blog.title }}">
+                    {% else %}
+                    <div class="projcard-img" style="background-color: #007bff;"></div>
+                    {% endif %}
+                    <div class="projcard-textbox">
+                        <div class="projcard-title">{{ blog.title|truncatechars:40 }}</div>
+                        <div class="projcard-subtitle">
+                            <p><strong>Posted on {{ blog.created_at|date:"F j, Y" }}</strong></p>
+                        </div>
+                        <div class="projcard-bar"></div>
+                        <div class="projcard-description">{{ blog.content|safe |truncatechars:275}}</div>
+                        <a href="{% url 'view_blog' blog.id %}" class="btn btn-primary">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

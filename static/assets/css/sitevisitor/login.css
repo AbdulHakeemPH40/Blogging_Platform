@@ -1,0 +1,217 @@
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.login-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.login-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+
+
+
+.additional-options {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.additional-options a {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.additional-options a:hover {
+    text-decoration: underline;
+}
+
+.alert-section {
+    margin-top: 20px;
+}
+
+/* Custom styles for Bootstrap alerts */
+.custom-alert {
+    border-radius: 5px;
+    border: 1px solid transparent;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Success message styling */
+.custom-alert.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+/* Error message styling */
+.custom-alert.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+/* Warning message styling */
+.custom-alert.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-color: #ffeeba;
+}
+
+/* Info message styling */
+.custom-alert.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-color: #bee5eb;
+}
+
+/* Close button styling */
+.custom-alert .close {
+    color: inherit;
+    opacity: 0.6;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.custom-alert .close:hover {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .login-container h1 {
+        font-size: 22px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        font-size: 14px;
+    }
+
+    .custom-checkbox label {
+        font-size: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .additional-options {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .login-container {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .login-container h1 {
+        font-size: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .form-control {
+        font-size: 12px;
+    }
+
+    .custom-checkbox label {
+        font-size: 11px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .additional-options {
+        margin-top: 10px;
+    }
+}
+
+/* Custom Checkbox Styling */
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    position: relative;
+}
+
+.custom-checkbox label::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    background-color: #ffffff;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.custom-checkbox input:checked + label::before {
+    background-color: #007bff;
+    border-color: #007bff;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"%3E%3Cpath d="M10 15.172l-3.59-3.586L5 12l5 5 9-9-1.41-1.414L10 15.172z"%3E%3C/path%3E%3C/svg%3E');
+    background-size: 12px 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.custom-checkbox input:focus + label::before {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Hover Effect */
+.custom-checkbox label:hover::before {
+    border-color: #0056b3;
+}

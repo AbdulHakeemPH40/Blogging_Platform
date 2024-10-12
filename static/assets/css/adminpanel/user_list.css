@@ -1,0 +1,114 @@
+/* User List Page Styles */
+.user-list-wrapper {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Adjusted width to fit content */
+    max-width: 900px; /* Adjusted max-width to better accommodate content */
+    margin: 20px auto;
+    overflow: auto;
+    text-align: center;
+}
+
+.user-list-wrapper h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem; /* Adjusted font size for better visibility */
+}
+
+.table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.table thead th {
+    background-color: #007bff;
+    color: #fff;
+    text-align: left;
+}
+
+.table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+.table .actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Add spacing between buttons */
+}
+
+.table .btn-sm {
+    padding: 5px 10px;
+    font-size: 0.875rem;
+}
+
+/* Blocked and Active User Styles */
+.blocked-user {
+    background-color: #f8d7da !important;  /* Light red background for blocked users */
+}
+
+.active-user {
+    background-color: #e4f5e8 !important;  /* Light green background for active users */
+}
+
+/* No records available */
+.no-records {
+    font-weight: bold;
+    color: #555;
+    padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .user-list-wrapper {
+        padding: 15px;
+    }
+
+    .table {
+        font-size: 0.875rem; /* Smaller font size for mobile */
+    }
+
+    .table .btn-sm {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Stack table rows for better readability on mobile */
+    .table thead {
+        display: none; /* Hide table headers */
+    }
+
+    .table tbody tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        font-size: 0.875rem;
+    }
+
+    .table tbody td:last-child {
+        border-bottom: none;
+    }
+
+    /* Actions stacked vertically */
+    .table .actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .table .btn-sm {
+        width: 100%; /* Make buttons full width for easier clicks on mobile */
+        margin-bottom: 10px;
+    }
+}

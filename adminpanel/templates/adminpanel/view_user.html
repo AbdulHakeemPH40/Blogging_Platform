@@ -1,0 +1,72 @@
+{% extends 'adminpanel/admin_base.html' %}
+{% load static %}
+
+<title>
+{% block title %}View Profile{% endblock %}
+</title>
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'assets/css/adminpanel/view_user.css' %}">
+{% endblock %}
+{% block content %}
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="cover-photo">
+            {% if user_profile.cover_photo %}
+            <img src="{{ user_profile.cover_photo.url }}" alt="Cover Photo" class="cover-photo-img">
+            {% else %}
+            <img src="{% static 'assets/image/default_cover.jpg' %}" alt="Default Cover Photo" class="cover-photo-img">
+            {% endif %}
+        </div>
+        <div class="container profile-in
+        ">
+            {% if user_profile.profile_image %}
+            <img src="{{ user_profile.profile_image.url }}" alt="Profile Picture" class="profile-picture-large img-fluid rounded-circle mb-3">
+            {% else %}
+            <img src="{% static 'assets/image/default_profile.png' %}" alt="Default Profile Picture" class="profile-picture-large img-fluid rounded-circle mb-3">
+            {% endif %}
+            
+            <h3>{{ user_profile.user.first_name }} {{ user_profile.user.last_name }}</h3>
+            
+            <div class="profile-item mb-2 border-bottom pb-0">
+                <p class="profile-username"><i class="fas fa-user"></i> <strong>Username:</strong> {{ user_profile.user.username }}</p>
+            </div>
+            
+            <div class="profile-item mb-2 border-bottom pb-2">
+                <p class="profile-email"><i class="fas fa-envelope"></i> <strong>Email:</strong> {{ user_profile.user.email }}</p>
+            </div>
+            
+            <div class="profile-item mb-2 border-bottom pb-2">
+                <p class="profile-phone"><i class="fas fa-phone"></i> <strong>Mobile Number:</strong> {{ user_profile.phone }}</p>
+            </div>
+            
+            <div class="profile-item mb-2 border-bottom pb-2">
+                <p class="profile-description"><i class="fas fa-info-circle"></i> <strong>Profile Description:</strong> {{ user_profile.profile_description }}</p>
+            </div>
+            
+            <div class="profile-item mb-2 border-bottom pb-2">
+                <p class="profile-gender"><i class="fas fa-venus-mars"></i> <strong>Gender:</strong> {{ user_profile.gender }}</p>
+            </div>
+            
+            <div class="profile-item mb-2 border-bottom pb-2">
+                <p class="profile-member-since"><i class="fas fa-calendar-alt"></i> <strong>Member Since:</strong> {{ user_profile.user.date_joined|date:"d-M-Y" }}</p>
+            </div>
+            
+            <!-- ID Proof -->
+            <div class="profile-item mb-2">
+                <p class="profile-id-proof"><i class="fas fa-id-card"></i> <strong>ID Proof:</strong></p>
+                {% if user_profile.id_proof %}
+                <div class="id-proof-container">
+                    <img src="{{ user_profile.id_proof.url }}" alt="ID Proof" class="id-proof-img img-fluid rounded">
+                </div>
+                {% else %}
+                <p class="text-muted">No ID Proof uploaded.</p>
+                {% endif %}
+            </div>
+        </div>
+      
+        
+    </div>
+    
+</div>
+
+{% endblock %}

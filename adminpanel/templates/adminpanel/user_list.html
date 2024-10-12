@@ -1,0 +1,49 @@
+{% extends 'adminpanel/admin_base.html' %}
+{% load static %}
+
+<title>
+{% block title %}User List{% endblock %}
+</title>
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'assets/css/adminpanel/user_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="user-list-wrapper">
+    <h2>Manage Users</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Profile Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr class="{% if user.is_blocked %}blocked-user{% else %}active-user{% endif %}">
+                <td>{{ user.user.username }}</td>
+                <td>{{ user.user.email }}</td>
+                <td>{{ user.user.date_joined|date:"d-M-Y" }}</td>
+                <td class="actions">
+                    <a href="{% url 'view_user' user.id %}" class="btn btn-primary btn-sm">View</a>
+                    {% if not user.is_blocked %}
+                        <a href="{% url 'block_user' user.id %}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to block this user?')">Block</a>
+                    {% else %}
+                        <a href="{% url 'unblock_user' user.id %}" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want to unblock this user?')">Unblock</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="text-center">
+                    No records available. Stay tuned, we will launch soon!
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

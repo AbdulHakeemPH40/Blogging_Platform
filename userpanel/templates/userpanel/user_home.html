@@ -1,0 +1,40 @@
+{% extends 'userpanel/user_base.html' %}
+{% load static %}
+{% block title %}
+    Home | My Blog
+{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'assets/css/sitevisitor/mystyle.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="projcard-container">
+    {% for BloG in bLogs %}
+    <div class="projcard {% cycle 'projcard-blue' 'projcard-red' 'projcard-green' 'projcard-customcolor' %}">
+        <div class="projcard-innerbox">
+            {% if BloG.blog_image %}
+            <img class="projcard-img" src="{{ BloG.blog_image.url }}" alt="{{ BloG.title }}"/>
+            {% else %}
+            <img class="projcard-img" src="{% static 'assets/image/default_blog.jpg' %}" alt="Default Image"/>
+            {% endif %}
+            <div class="projcard-textbox">
+                <div class="projcard-title">{{ BloG.title|truncatechars:40 }}</div>
+                <div class="projcard-subtitle">
+                    By <a href="{% url 'view_user_profile' BloG.author.id %}">{{ BloG.author.username }}</a> on {{ BloG.created_at|date:"F j, Y" }}
+                </div>
+                <div class="projcard-bar"></div>
+                <div class="projcard-description">{{ BloG.content|safe|truncatechars:275 }}</div>
+                <div class="projcard-tagbox">
+                    <!-- Add tags or categories here if you have them -->
+                </div>
+                <a href="{% url 'view_blog' BloG.id %}" class="btn btn-primary">Continue Reading</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="no-records">
+        <p style="text-align: center;">No records available. Stay tuned, we will launch soon!</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

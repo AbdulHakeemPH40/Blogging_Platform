@@ -1,0 +1,248 @@
+/* General Styles */
+body {
+    background-color: #f4f4f4;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar (Header) */
+.navbar {
+    background-color: #343a40;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    height: 30px;
+    max-width: 100%;
+}
+
+.navbar .navbar-toggler {
+    margin-top: 10px;
+}
+
+.navbar .profile-picture {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.navbar .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+.dropdown-menu-right .dropdown-item {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu-right .dropdown-item i {
+    margin-right: 10px;
+}
+
+/* Login Wrapper */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    padding-top: 80px; /* Adjusted to account for navbar height */
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-box h1 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    height: 40px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.alert {
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #ddd;
+    padding: 20px 0;
+    width: 100%;
+    border-top: 2px solid #444;
+    text-align: center;
+    position: relative;
+}
+
+/* Messages */
+.messages-container {
+    position: fixed;
+    top: 60px; /* Adjust based on your navbar height */
+    right: 20px;
+    z-index: 1050; /* Ensure it appears above other elements */
+    width: auto;
+    max-width: 300px; /* Adjust as needed */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .navbar .navbar-toggler {
+        margin-top: 5px;
+    }
+
+    .login-container {
+        padding: 15px;
+    }
+
+    .login-box {
+        padding: 30px;
+    }
+
+    .login-box h1 {
+        font-size: 22px;
+    }
+
+    .form-group input {
+        font-size: 15px;
+        padding: 8px;
+    }
+
+    .btn-primary {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar .navbar-toggler {
+        margin-top: 5px;
+    }
+
+    .login-container {
+        padding: 10px;
+    }
+
+    .login-box {
+        padding: 20px;
+    }
+
+    .login-box h1 {
+        font-size: 20px;
+    }
+
+    .form-group input {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .btn-primary {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        position: relative;
+    }
+
+    .navbar .navbar-brand,
+    .navbar .navbar-toggler {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    .navbar .navbar-toggler {
+        margin-top: 10px;
+    }
+
+    .login-wrapper {
+        padding-top: 60px;
+    }
+
+    .login-container {
+        padding: 5px;
+    }
+
+    .login-box {
+        padding: 15px;
+    }
+
+    .login-box h1 {
+        font-size: 18px;
+    }
+
+    .form-group input {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .btn-primary {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

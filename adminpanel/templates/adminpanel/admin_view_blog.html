@@ -1,0 +1,62 @@
+{% extends 'adminpanel/admin_base.html' %}
+{% load static %}
+{% block title %}
+    View Blog | Admin Panel
+<style>
+</style>
+{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'assets/css/userpanel/view_Blog.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="header_1">
+        <h1>{{ Blog.title }}</h1>
+        <div class="meta">
+            <p style="color: #ff9100;">
+                <strong>By
+                {{ Blog.author.username }}
+                {{ Blog.created_at|date:"F j, Y" }}
+                </strong> 
+            </p>
+            {% if Blog.status == 'hidden' %}
+            <span class="badge badge-warning">Hidden</span>
+            {% endif %}
+        </div>
+        <div class="admin-actions"> 
+            <div class="justify-content-center">
+                {% if Blog.status == 'published' %}
+                <a href="{% url 'admin_hide_blog' Blog.id %}" class="btn btn-danger btn-sm">Hide Blog</a>
+                {% else %}
+                <a href="{% url 'admin_show_blog' Blog.id %}" class="btn btn-success btn-sm">Show Blog</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="content" style="text-align: center;">
+        {% if Blog.blog_image %}
+        <img class="projcard-img" src="{{ Blog.blog_image.url }}" alt="{{ Blog.title }}" style="width:fit-content;">
+        {% endif %}
+        <p>{{ Blog.content|safe }}</p>
+    </div>
+    
+    <div class="comments">
+        <h2>Comments</h2>
+        {% for comment in comments %}
+        <div class="comment">
+            <div class="author">{{ comment.author.username }}</div>
+            <div class="text">{{ comment.comment }}</div>
+            <div class="comment-meta">Posted on {{ comment.created_at|date:"F j, Y, g:i a" }}</div>
+            <div class="admin-comment-actions">
+                {% if comment.status == 'visible' %}
+                <a href="{% url 'admin_hide_comment' comment.id %}" class="btn btn-sm btn-outline-danger">Hide Comment</a>
+                {% else %}
+                <a href="{% url 'admin_show_comment' comment.id %}" class="btn btn-sm btn-outline-success">Show Comment</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

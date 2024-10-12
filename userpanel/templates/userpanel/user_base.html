@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Blog{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/css/userpanel/userbase.css' %}">
+    <link rel="shortcut icon" href="{% static 'assets/image/favicon.ico' %}" type="image/x-icon">
+    {% block custom_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <a class="navbar-brand" href="{% url 'user_home' %}">
+            <img src="{% static 'assets/image/logo.png' %}" alt="My Blog" height="30">
+        </a>
+
+        <!-- Navbar Content -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'user_home' %}"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-bell"></i> Notifications</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+
+        <!-- Right-side Profile Dropdown -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="{% if request.user.user_table.profile_image %}{{ request.user.user_table.profile_image.url }}{% else %}{% static 'assets/image/default_profile.png' %}{% endif %}" alt="Profile Picture" class="profile-picture" style="width: 30px; height: 30px; border-radius: 50%;">
+                    <span class="ml-2">{{ request.user.first_name }}</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'view_user_profile' request.user.id %}"><i class="fas fa-user"></i> Profile</a>
+                    <a class="dropdown-item" href="{% url 'edit_profile' user.id %}"><i class="fas fa-user-edit"></i> Edit Profile</a>
+                    <a class="dropdown-item" href="{% url 'user_reset_password' %}"><i class="fas fa-key"></i> Reset Password</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'sign_out' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"><i class="fas fa-info-circle"></i> About</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Adjust container padding -->
+    <div class="container-fluid mt-5 pt-4" style="padding-top: 70px;">
+        <div class="row">
+            <!-- Left Sidebar (Always visible below navbar) -->
+            <nav id="sidebar-left" class="col-md-2 d-md-block sidebar">
+                <div class="sidebar-inner">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'my_blog' %}">
+                                    <i class="fas fa-book"></i> <span>My Blogs</span> <!-- Wrap name in span -->
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'add_blog' %}">
+                                    <i class="fas fa-plus"></i> <span>Create Blog</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'user_blog_list' %}">
+                                    <i class="fas fa-list"></i> <span>All Blogs</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main role="main" class="col-md-10 main-content">
+                <div class="messages-container">
+                    {% if messages %}
+                        <div class="messages mt-2">
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} alert-success fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 bg-dark text-white" style="width: 100%;">
+        <div style="display: flex; justify-content: center;">
+            <p>&copy; 2024 My Blog All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>

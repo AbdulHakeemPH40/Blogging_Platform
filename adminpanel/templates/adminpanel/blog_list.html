@@ -1,0 +1,72 @@
+{% extends 'adminpanel/admin_base.html' %}
+{% load static %}
+{% block title %}
+    Blog List | Admin Panel
+{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'assets/css/userpanel/my_blogs.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h2 class="h2">All Blogs</h2>
+    </div>
+    
+    <div class="button-container">
+        <a href="?section=published" class="btn-nav {% if section == 'published' %}active{% endif %}">Published</a>
+        <a href="?section=hidden" class="btn-nav {% if section == 'hidden' %}active{% endif %}">Hidden</a>
+    </div>
+    
+    {% if section == 'published' %}
+    <div class="projcard-container">
+        {% for blog in published_blogs %}
+        <div class="projcard {% cycle 'projcard-blue' 'projcard-red' 'projcard-green' 'projcard-customcolor' %}">
+            <div class="projcard-innerbox">
+                {% if blog.blog_image %}
+                <img class="projcard-img" src="{{ blog.blog_image.url }}" alt="{{ blog.title }}" />
+                {% else %}
+                <div class="projcard-img" style="background-color: #007bff;"></div>
+                {% endif %}
+                <div class="projcard-textbox">
+                    <div class="projcard-title">{{ blog.title|truncatechars:40 }}</div>
+                    <div class="projcard-subtitle">Posted on {{ blog.created_at|date:"F j, Y" }}</div>
+                    <div class="projcard-bar"></div>
+                    <div class="projcard-description">{{ blog.content|safe|truncatechars:275 }}</div>
+                    <a href="{% url 'admin_view_blog' blog.id %}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="no-records">
+            <p style="text-align: center;">No records available. Stay tuned, we will launch soon!</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% elif section == 'hidden' %}
+    <div class="projcard-container">
+        {% for blog in hidden_blogs %}
+        <div class="projcard {% cycle 'projcard-blue' 'projcard-red' 'projcard-green' 'projcard-customcolor' %}">
+            <div class="projcard-innerbox">
+                {% if blog.blog_image %}
+                <img class="projcard-img" src="{{ blog.blog_image.url }}" alt="{{ blog.title }}" />
+                {% else %}
+                <div class="projcard-img" style="background-color: #007bff;"></div>
+                {% endif %}
+                <div class="projcard-textbox">
+                    <div class="projcard-title">{{ blog.title|truncatechars:40 }}</div>
+                    <div class="projcard-subtitle">Hidden on {{ blog.updated_at|date:"F j, Y" }}</div>
+                    <div class="projcard-bar"></div>
+                    <div class="projcard-description">{{ blog.content|safe|truncatewords:250 }}</div>
+                    <a href="{% url 'admin_view_blog' blog.id %}" class="btn btn-success">Show</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="no-records">
+            <p style="text-align: center;">No records available. Stay tuned, we will launch soon!</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

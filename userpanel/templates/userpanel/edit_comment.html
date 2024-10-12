@@ -1,0 +1,22 @@
+{% extends 'userpanel/user_base.html' %}
+{% load static %}
+{% block title %}
+    Edit Comment | My Blog
+{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'assets/css/userpanel/edit_comment.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Edit Comment</h2>
+    <form action="{% url 'edit_comment' comment.id %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="comment">Comment *</label>
+            <textarea name="comment" id="comment" rows="4" class="form-control" required>{{ comment.comment }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="{% url 'view_blog' comment.blog.id %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

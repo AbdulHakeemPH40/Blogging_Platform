@@ -1,0 +1,8 @@
+.messages-container {
+    position: fixed;
+    top: 60px; /* Adjust based on your navbar height */
+    right: 20px;
+    z-index: 1050; /* Ensure it appears above other elements */
+    width: auto;
+    max-width: 300px; /* Adjust as needed */
+}

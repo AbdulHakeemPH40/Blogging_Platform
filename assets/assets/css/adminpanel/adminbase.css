@@ -1,0 +1,260 @@
+/* General Styles */
+body {
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-fluid {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #343a40;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .profile-picture {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.navbar .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+.dropdown-menu-right .dropdown-item {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu-right .dropdown-item i {
+    margin-right: 10px;
+}
+
+/* Sidebar */
+#sidebar-left {
+    position: fixed;
+    top: 56px; /* Height of the navbar */
+    left: 0;
+    width: 220px;
+    height: calc(100% - 56px);
+    overflow-y: auto;
+    background-color: #222;
+    color: #fff;
+    padding-top: 20px;
+    border-right: 2px solid #444;
+    transition: width 0.3s, padding 0.3s, font-size 0.3s;
+    z-index: 999;
+}
+
+#sidebar-left .sidebar-inner {
+    padding: 10px;
+}
+
+#sidebar-left .nav-link {
+    color: #ddd;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    transition: padding 0.3s, font-size 0.3s;
+}
+
+#sidebar-left .nav-link i {
+    margin-right: 10px;
+}
+
+#sidebar-left .nav-link:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#sidebar-left .nav-link.active {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 220px; /* Adjust according to sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    transition: padding 0.3s ease-in-out, width 0.3s ease-in-out;
+    overflow: auto;
+}
+
+.content-wrapper h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #ddd;
+    padding: 20px 0;
+    width: 100%;
+    border-top: 2px solid #444;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Profile */
+.navbar .profile-picture,
+.navbar-brand img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+/* Messages Container */
+.messages-container {
+    position: fixed;
+    top: 60px; /* Adjust based on your navbar height */
+    right: 20px;
+    z-index: 1050;
+    width: auto;
+    max-width: 300px;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablets and Small Desktops */
+@media (max-width: 992px) {
+    #sidebar-left {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+    }
+
+    .content-wrapper {
+        padding: 15px;
+        max-width: 900px;
+    }
+}
+
+/* Landscape Phones and Tablets */
+@media (max-width: 768px) {
+    #sidebar-left {
+        width: 60px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    #sidebar-left .nav-link {
+        justify-content: center;
+    }
+
+    #sidebar-left .nav-link span {
+        display: none;
+    }
+
+    .content-wrapper {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    #sidebar-left .nav-link i {
+        margin-right: 0;
+    }
+}
+
+/* Portrait Phones */
+@media (max-width: 576px) {
+    #sidebar-left {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 56px;
+        left: 0;
+        border-right: none;
+        border-bottom: 2px solid #444;
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-top: calc(56px + 60px);
+    }
+
+    #sidebar-left .nav-link {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    #sidebar-left .nav-link span {
+        display: inline;
+    }
+
+    .navbar .form-inline {
+        display: none;
+    }
+
+    .content-wrapper {
+        padding: 10px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .navbar {
+        position: relative;
+    }
+
+    .navbar .navbar-brand,
+    .navbar .navbar-toggler {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    .navbar .navbar-toggler {
+        margin-top: 10px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-top: 0;
+        padding: 15px;
+    }
+
+    .content-wrapper {
+        width: 100%;
+        padding: 15px;
+    }
+}

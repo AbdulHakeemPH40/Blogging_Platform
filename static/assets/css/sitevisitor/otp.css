@@ -1,0 +1,88 @@
+body {
+    background-color: #ececec;
+}
+
+.otp-container {
+    max-width: 500px;  
+    width: 100%;       
+    margin: 50px auto;  
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.otp-card {
+    border: none;
+    background-color: transparent;
+}
+
+.otp-card-body {
+    padding: 24px;
+}
+
+.otp-form-group {
+    margin-bottom: 16px;
+}
+
+.otp-input {
+    width: 50px;  
+    margin: 0 5px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #adadad;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.otp-input:focus {
+    border: 1px solid #007bff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.btn-primary, .btn-success {
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 8px;
+    border: none;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #42b72a;
+}
+
+.btn-success:hover {
+    background-color: #36921f;
+}
+
+.text-center a {
+    color: #007bff;
+}
+
+.text-center a:hover {
+    text-decoration: underline;
+}
+
+.alert-dismissible .close {
+    position: relative;
+    top: -2px;
+    right: -10px;
+    color: inherit;
+}

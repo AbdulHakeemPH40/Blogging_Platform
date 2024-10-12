@@ -1,0 +1,130 @@
+/* Edit Blog Content Wrapper */
+.edit-blog-content-wrapper {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px #ffffff;
+    width: 100%;
+    max-width: 750px;
+    height: fit-content;
+    margin: 20px auto;
+}
+
+.alert {
+    background-color: #e9cd44;
+    text-align: center;
+    color: #f5f5f5;
+}
+
+.edit-blog-heading {
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 4px solid #007bff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 28px;
+}
+
+/* Edit Blog Form Container */
+.edit-blog-form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    height: auto;
+    transition: padding 0.3s ease-in-out, width 0.3s ease-in-out;
+    overflow: auto;
+}
+
+/* Edit Blog Form */
+.edit-blog-form {
+    margin-top: 5px;
+}
+
+.edit-blog-form .form-group {
+    margin-bottom: 15px;
+}
+
+.edit-blog-form .form-control,
+.edit-blog-form .form-control-file {
+    border-radius: 4px;
+    box-shadow: none;
+    transition: box-shadow 0.3s ease-in-out;
+    width: 100%;
+}
+
+.edit-blog-form .form-control:focus,
+.edit-blog-form .form-control-file:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.edit-blog-form .btn {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 8px 24px;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.edit-blog-form .btn:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.edit-blog-form .btn-danger {
+    background-color: #f94d5e;
+    border-color: #f94d5e;
+    font-weight: 100;
+    border-radius: 5px;
+    padding: 6px 12px;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.edit-blog-form .btn-danger:hover {
+    background-color: #f21e33;
+    border-color: #f21e33;
+}
+
+/* Media Queries */
+
+/* For screens less than or equal to 768px */
+@media (max-width: 768px) {
+    .edit-blog-content-wrapper {
+        padding: 15px;
+    }
+
+    .edit-blog-heading {
+        font-size: 24px;
+    }
+
+    .edit-blog-form .btn {
+        padding: 8px 20px;
+        font-size: 16px;
+    }
+
+    .edit-blog-form .btn-danger {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* For screens less than or equal to 480px */
+@media (max-width: 480px) {
+    .edit-blog-content-wrapper {
+        padding: 10px;
+    }
+
+    .edit-blog-heading {
+        font-size: 20px;
+    }
+
+    .edit-blog-form .btn {
+        padding: 6px 16px;
+        font-size: 14px;
+    }
+
+    .edit-blog-form .btn-danger {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}

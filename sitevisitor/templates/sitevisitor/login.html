@@ -1,0 +1,56 @@
+{% extends 'sitevisitor/site_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<title>{% block title %}Login{% endblock %}</title>
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'assets/css/sitevisitor/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="login-container">
+        <h1>Login</h1>
+        {% if messages %}
+            <div class="messages mt-2">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-danger fade show custom-alert" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.username|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ form.password|add_class:"form-control" }}
+            </div>
+            <div class="form-group text-center custom-checkbox">
+                <input type="checkbox" id="show-password">
+                <label for="show-password"> Show Password</label>
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary" style="color: white;">Sign In</button>
+            </div>
+        </form>
+        
+        <div class="alert-section" id="alert-section"></div>
+        <div class="additional-options">
+            <a href="{% url 'registration' %}">Create a New Account</a>
+            <a href="{% url 'forgot_password' %}">Forgot Password?</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('show-password').addEventListener('change', function() {
+        var passwordField = document.getElementsByName('password')[0];
+        passwordField.type = this.checked ? 'text' : 'password';  // Show/Hide password
+    });
+</script>
+{% endblock %}

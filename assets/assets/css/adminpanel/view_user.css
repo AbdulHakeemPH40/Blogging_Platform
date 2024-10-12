@@ -1,0 +1,102 @@
+/* General Content Wrapper */
+.content-wrapper {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 950px;
+    max-width: 1500px;
+}
+
+/* Profile Container */
+.profile-container {
+    margin-bottom: 20px; 
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%; /* Ensure the profile container takes the full width available */
+    max-width: 950px; /* Restrict the maximum width to match the content wrapper */
+    margin: 0 auto; /* Center the profile container */
+}
+
+.profile-header {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.cover-photo-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.profile-info {
+    margin-top: -50px;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%; /* Ensure the profile-info section takes the full width of the container */
+}
+
+.profile-picture-large {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.profile-info h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #343a40;
+}
+
+/* Profile Info Text */
+.profile-info p {
+    font-size: 16px;
+    color: #6c757d;
+    margin: 10px 0;
+}
+
+.profile-phone,
+.profile-description,
+.profile-gender {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #6c757d;
+}
+
+.profile-description {
+    font-style: italic;
+    color: #495057;
+}
+
+/* ID Proof Section */
+.profile-id-proof {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: 500;
+    color: #343a40;
+    text-align: center;
+}
+
+.id-proof-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.id-proof-img {
+    max-width: 400px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}

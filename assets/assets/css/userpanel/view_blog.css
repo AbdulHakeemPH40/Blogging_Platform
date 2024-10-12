@@ -1,0 +1,210 @@
+/* General Styles */
+body {
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: white;
+    width: 90%;
+    max-width: 1200px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 10px auto; /* Center the container */
+    padding-top: 10px; /* Add padding at the top to avoid navbar overlap */
+}
+
+.header_1 {
+    background-color: #007bff;
+    color: white;
+    padding: 30px;
+    margin: 10px auto;
+    text-align: center;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.header_1 h1 {
+    font-size: 38px;
+}
+
+.header_1 .meta {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.content {
+    padding: 20px;
+    color: #333;
+    text-align: justify;
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+}
+
+.comments {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.comments h2 {
+    font-size: 18px;
+}
+
+.comment {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.comment .author {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.comment .text {
+    margin-top: 5px;
+}
+
+.comment-actions {
+    margin-top: 5px;
+}
+
+.leave-reply {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.leave-reply h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* Messages container styling */
+.messages-container {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    z-index: 1050;
+    width: auto;
+    max-width: 300px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    /* Adjust the container to avoid side margins */
+    .container {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .header_1 h1 {
+        font-size: 32px;
+        padding: 20px;
+    }
+
+    .header_1 .meta {
+        font-size: 16px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .comments h2 {
+        font-size: 16px;
+    }
+
+    .comment .author,
+    .comment .text {
+        font-size: 14px;
+    }
+
+    .leave-reply h3 {
+        font-size: 16px;
+    }
+
+    /* Adjust image sizing */
+    .content img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Adjust margins to center the container properly */
+    .container {
+        margin: 20px auto;
+        padding-top: 20px; /* Add space to prevent overlap with navbar */
+    }
+}
+
+@media (max-width: 576px) {
+    /* Adjust for small devices */
+    .container {
+        width: 100%;
+        margin: 10px auto;
+        padding: 15px;
+    }
+
+    .header_1 h1 {
+        font-size: 24px;
+        padding: 15px;
+    }
+
+    .header_1 .meta {
+        font-size: 14px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .comments h2 {
+        font-size: 14px;
+    }
+
+    .comment .author,
+    .comment .text {
+        font-size: 12px;
+    }
+
+    .leave-reply h3 {
+        font-size: 14px;
+    }
+
+    /* Adjust image sizing */
+    .content img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Center content and avoid overlap */
+    .container {
+        margin: 10px auto;
+        padding-top: 20px; /* Ensure space between navbar and container */
+    }
+
+    /* Make the blog container fit well on small screens */
+    .container {
+        padding: 15px;
+    }
+
+    .navbar {
+        top: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+    }
+
+    .navbar + .container {
+        margin-top: 60px;
+    }
+}

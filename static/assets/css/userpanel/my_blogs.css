@@ -1,0 +1,488 @@
+/* Container Styles */
+.container {
+    background-color: white;
+    width: 100%;
+    max-width: 950px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Navigation Buttons */
+.btn-nav {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+}
+
+.btn-nav.active,
+.btn-nav:hover {
+    background-color: #f5611d;
+    color: white;
+}
+
+/* Blog Container */
+.blog-container {
+    margin-top: 20px;
+}
+
+.blog-section-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Project Card Container */
+.projcard-container {
+    margin: 50px auto;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.projcard-container,
+.projcard-container * {
+    box-sizing: border-box;
+}
+
+/* Project Card Styles */
+.projcard {
+    position: relative;
+    width: 90%;
+    height: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    font-size: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.projcard:hover {
+    box-shadow: 0 34px 32px -33px rgba(0, 0, 0, 0.18);
+    transform: translate(0px, -3px);
+}
+
+.projcard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(-70deg, #424242, transparent 50%);
+    opacity: 0.07;
+}
+
+.projcard:nth-child(2n)::before {
+    background-image: linear-gradient(-250deg, #424242, transparent 50%);
+}
+
+.projcard-innerbox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/* Project Card Image */
+.projcard-img {
+    position: absolute;
+    height: 300px;
+    width: 400px;
+    top: 0;
+    left: 0;
+    transition: transform 0.2s ease;
+    object-fit: cover;
+}
+
+.projcard:nth-child(2n) .projcard-img {
+    left: initial;
+    right: 0;
+}
+
+.projcard:hover .projcard-img {
+    transform: scale(1.05) rotate(1deg);
+}
+
+.projcard:hover .projcard-bar {
+    width: 70px;
+}
+
+/* Project Card Textbox */
+.projcard-textbox {
+    position: absolute;
+    top: 7%;
+    bottom: 7%;
+    padding: 15px;
+    margin: 14px;
+    left: 430px;
+    width: calc(100% - 470px);
+    font-size: 17px;
+}
+
+.projcard:nth-child(2n) .projcard-textbox {
+    left: initial;
+    right: 430px;
+}
+
+.projcard-textbox::before,
+.projcard-textbox::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background: #fff;
+    top: -20%;
+    left: -55px;
+    height: 140%;
+    width: 60px;
+    transform: rotate(8deg);
+}
+
+.projcard:nth-child(2n) .projcard-textbox::before {
+    display: none;
+}
+
+.projcard-textbox::after {
+    display: none;
+    left: initial;
+    right: -55px;
+}
+
+.projcard:nth-child(2n) .projcard-textbox::after {
+    display: block;
+}
+
+.projcard-textbox * {
+    position: relative;
+}
+
+/* Project Card Title */
+.projcard-title {
+    font-family: "Voces", "Open Sans", Arial, sans-serif;
+    font-size: 24px;
+}
+
+/* Project Card Subtitle */
+.projcard-subtitle {
+    font-family: "Voces", "Open Sans", Arial, sans-serif;
+    color: #888;
+}
+
+/* Project Card Bar */
+.projcard-bar {
+    left: -2px;
+    width: 50px;
+    height: 5px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #424242;
+    transition: width 0.2s ease;
+}
+
+/* Color Variations */
+.projcard-blue .projcard-bar {
+    background-color: #0088ff;
+}
+
+.projcard-blue::before {
+    background-image: linear-gradient(-70deg, #0088ff, transparent 50%);
+}
+
+.projcard-blue:nth-child(2n)::before {
+    background-image: linear-gradient(-250deg, #0088ff, transparent 50%);
+}
+
+.projcard-red .projcard-bar {
+    background-color: #d62f1f;
+}
+
+.projcard-red::before {
+    background-image: linear-gradient(-70deg, #d62f1f, transparent 50%);
+}
+
+.projcard-red:nth-child(2n)::before {
+    background-image: linear-gradient(-250deg, #d62f1f, transparent 50%);
+}
+
+.projcard-green .projcard-bar {
+    background-color: #40bd00;
+}
+
+.projcard-green::before {
+    background-image: linear-gradient(-70deg, #40bd00, transparent 50%);
+}
+
+.projcard-green:nth-child(2n)::before {
+    background-image: linear-gradient(-250deg, #40bd00, transparent 50%);
+}
+
+.projcard-customcolor .projcard-bar {
+    background-color: var(--projcard-color);
+}
+
+.projcard-customcolor::before {
+    background-image: linear-gradient(-70deg, var(--projcard-color), transparent 50%);
+}
+
+.projcard-customcolor:nth-child(2n)::before {
+    background-image: linear-gradient(-250deg, var(--projcard-color), transparent 50%);
+}
+
+/* Project Card Description */
+.projcard-description {
+    z-index: 10;
+    font-size: 15px;
+    color: #424242;
+    height: 125px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* No Records Message */
+.no-records {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.5em;
+    color: #555;
+}
+
+/* Read More and Action Buttons */
+.projcard .btn-primary,
+.projcard .btn-danger {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    padding: 10px 10px;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-right: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.projcard .btn-danger {
+    background-color: #dc3545;
+}
+
+.projcard .btn-primary:hover,
+.projcard .btn-danger:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.projcard .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Specific styles for different card colors if needed */
+.projcard-red .btn-primary,
+.projcard-blue .btn-primary,
+.projcard-green .btn-primary,
+.projcard-customcolor .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+.projcard-red .btn-primary:hover,
+.projcard-blue .btn-primary:hover,
+.projcard-green .btn-primary:hover,
+.projcard-customcolor .btn-primary:hover {
+    background-color: #0056b3;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Media Queries for Responsiveness */
+
+/* For screens less than or equal to 1024px */
+@media (max-width: 1024px) {
+    .container {
+        padding: 15px;
+        margin: 20px;
+
+        
+    }
+
+    .projcard-container {
+        width: 90%;
+        
+
+    }
+
+    .projcard {
+        height: auto;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .projcard-innerbox {
+        position: relative;
+        height: auto;
+    }
+
+    .projcard-img {
+        position: relative;
+        width: 100%;
+        height: 250px;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+
+    .projcard-textbox {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin-top: 10px;
+        bottom: 0;
+    }
+
+    .projcard-textbox::before,
+    .projcard-textbox::after {
+        display: none;
+    }
+
+    .projcard-bar {
+        left: 0;
+    }
+
+    .projcard-tagbox {
+        position: relative;
+        bottom: 0;
+        margin-top: 10px;
+    }
+
+    /* Adjust for nth-child(2n) cards */
+    .projcard:nth-child(2n) .projcard-img {
+        left: 0;
+    }
+
+    .projcard:nth-child(2n) .projcard-textbox {
+        left: 0;
+    }
+
+    .btn-nav {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+}
+
+/* For screens less than or equal to 768px */
+@media (max-width: 768px) {
+    .projcard-container {
+        width: 95%;
+    }
+
+    .projcard {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .projcard-img {
+        height: 200px;
+    }
+
+    .projcard-title {
+        font-size: 22px;
+    }
+
+    .projcard-subtitle {
+        font-size: 16px;
+    }
+
+    .projcard-description {
+        font-size: 14px;
+        height: auto;
+    }
+
+    .btn-nav,
+    .projcard .btn-primary,
+    .projcard .btn-danger {
+        font-size: 14px;
+        padding: 7px 11px;
+    }
+}
+
+/* For screens less than or equal to 480px */
+@media (max-width: 480px) {
+    .projcard {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .projcard-title {
+        font-size: 20px;
+    }
+
+    .projcard-subtitle {
+        font-size: 14px;
+    }
+
+    .projcard-description {
+        font-size: 13px;
+    }
+
+    .projcard-img {
+        height: 180px;
+    }
+
+    .btn-nav,
+    .projcard .btn-primary,
+    .projcard .btn-danger {
+        font-size: 13px;
+        padding: 7px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-nav, .projcard .btn-primary, .projcard .btn-danger {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projcard-container {
+        width: 106%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .projcard-innerbox {
+        position: relative;
+        height: auto;
+        margin-left: -19px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 15px;
+        margin: 2px;
+    }
+}
